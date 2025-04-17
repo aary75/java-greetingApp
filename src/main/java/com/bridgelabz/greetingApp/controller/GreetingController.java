@@ -19,14 +19,14 @@ public class GreetingController {
     @Autowired(required = true)
     private UserService userService;
 
-    // GET /greetings/byName?name=Harman
+    // GET /greetings/byName?name=Aaryan
     @GetMapping("/byName")
     public Greeting greetingByName(@RequestParam(value = "name", defaultValue = "World") String name) {
         User user = userService.createUser(name);
         return service.addGreeting(user);
     }
 
-    // GET /greetings/byFullName?firstName=Chirag&lastName=Garg
+    // GET /greetings/byFullName?firstName=Aaryan&lastName=Garg
     @GetMapping("/byFullName")
     public Greeting greetingByFullName(@RequestParam(value = "firstName", defaultValue = "World") String firstName,
                                        @RequestParam(value = "lastName", required = false) String lastName) {
@@ -40,7 +40,7 @@ public class GreetingController {
         return service.addGreeting(user);
     }
 
-    // POST /greetings - Body: { "firstName": "HarmanVeer", "lastName": "Singh" }
+    // POST /greetings - Body: { "firstName": "Aaryan", "lastName": "Garg" }
     @PostMapping("")
     public Greeting greeting(@RequestBody User user) {
         return service.addGreeting(user);
